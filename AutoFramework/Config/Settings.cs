@@ -24,5 +24,7 @@ namespace AutoFramework.Config
         public static string IsLog { get; set; }
 
         public static string LogPath { get; set; }
+
+        public static string DriverPath { get; set; }
     }
 }

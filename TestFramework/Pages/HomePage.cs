@@ -21,7 +21,8 @@ namespace TestFramework.Pages
         private IWebElement lnkNewCompany { get; set; }
 
         public void NavigateToNewCompany() {
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
+            DriverContext.Driver.WaitForpageLoaded();
             DriverContext.Driver.SwitchTo().Frame(1);
             lnkCompany.MouseHover();
             lnkNewCompany.Click();
