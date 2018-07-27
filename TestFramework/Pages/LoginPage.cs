@@ -2,11 +2,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using AutoFramework.Extensions;
 
 namespace TestFramework.Pages
 {
@@ -24,7 +22,9 @@ namespace TestFramework.Pages
         public HomePage Login(string UserName, string Password)
         {
             //username and password
+            txtUsername.AssertElementPresent();
             txtUsername.SendKeys(UserName);
+            txtPassword.AssertElementPresent();
             txtPassword.SendKeys(Password);
             //submit button
             Thread.Sleep(5000);

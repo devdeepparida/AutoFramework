@@ -1,4 +1,5 @@
 ﻿using AutoFramework.Base;
+using AutoFramework.Extensions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
@@ -22,8 +23,7 @@ namespace TestFramework.Pages
         public void NavigateToNewCompany() {
             Thread.Sleep(2000);
             DriverContext.Driver.SwitchTo().Frame(1);
-            Actions builder = new Actions(DriverContext.Driver);
-            builder.MoveToElement(lnkCompany).Build().Perform();
+            lnkCompany.MouseHover();
             lnkNewCompany.Click();
         }
 
