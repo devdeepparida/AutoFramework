@@ -17,19 +17,19 @@ namespace TestFramework
         //private IWebDriver _driver;
                
 
-        [TestMethod]
-        public void TestLogin()
-        {
-            TestInitializeHook.InitializeSettings();
-            string filename = Environment.CurrentDirectory.ToString() + @"\Data\Testdata.xlsx";
-            ExcelHelpers.PopulateInCollection(filename);
+       // [TestMethod]
+        //public void TestLogin()
+        //{
+        //    TestInitializeHook.NavigateToSite();
+        //    string filename = Environment.CurrentDirectory.ToString() + @"\Data\Testdata.xlsx";
+        //    ExcelHelpers.PopulateInCollection(filename);
                         
-            LogHelpers.WriteLog("Login");
-            CurrentPage =GetInstance<LoginPage>().Login(ExcelHelpers.ReadData(1,"UserName"), ExcelHelpers.ReadData(1, "Password"));
+        //    LogHelpers.WriteLog("Login");
+        //    CurrentPage =GetInstance<LoginPage>().Login(ExcelHelpers.ReadData(1,"UserName"), ExcelHelpers.ReadData(1, "Password"));
 
-            LogHelpers.WriteLog("Navigate To NewCompany page");
-            CurrentPage.As<HomePage>().NavigateToNewCompany();
-        }
+        //    LogHelpers.WriteLog("Navigate To NewCompany page");
+        //    CurrentPage.As<HomePage>().NavigateToNewCompany();
+        //}
 
        
     }

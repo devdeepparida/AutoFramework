@@ -5,6 +5,7 @@ using System;
 using System.Text;
 using System.Threading;
 using AutoFramework.Extensions;
+using AutoFramework.Helpers;
 
 namespace TestFramework.Pages
 {
@@ -18,6 +19,13 @@ namespace TestFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "//input[@class='btn btn-small']")]
         private IWebElement btnSubmit { get; set; }
+
+        public LoginPage CheckLoginPageLoaded()
+        {
+            DriverContext.Driver.WaitForpageLoaded();
+            txtUsername.AssertElementPresent();
+            return GetInstance<LoginPage>();
+        }
 
         public HomePage Login(string UserName, string Password)
         {

@@ -11,19 +11,21 @@ namespace AutoFramework.Base
 {
     public class TestInitializeHook: Base
     {
-        public static void InitializeSettings()
+        public TestInitializeHook(BrowserType browserType)
+        {
+            InitializeSettings();
+            OpenBrowser(browserType);
+        }
+
+        public void InitializeSettings()
         {
             //Set all the settings for framework
             ConfigReader.SetFrameworkSettings();
 
             //Set log
-            LogHelpers.CeateLogFile();
-
-            //Open Browser
-            LogHelpers.WriteLog("Opening Browser");
-            OpenBrowser(Settings.Url, Settings.BrowserType);
+            //LogHelpers.CeateLogFile();
         }
-        private static void OpenBrowser(string url, BrowserType browserType = BrowserType.Firefox)
+        private static void OpenBrowser( BrowserType browserType = BrowserType.Firefox)
         {
             switch (browserType)
             {
@@ -32,19 +34,21 @@ namespace AutoFramework.Base
                 case BrowserType.Chrome:
                     break;
                 case BrowserType.Firefox:
-                    LogHelpers.WriteLog("Initialize FireFox Browser");
-                    FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@Settings.DriverPath); // location of the geckdriver.exe file
+                    //LogHelpers.WriteLog("Initialize FireFox Browser");
+                    FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(Settings.DriverPath); // location of the geckdriver.exe file
                     DriverContext.Driver = new FirefoxDriver(service);
                     DriverContext.Browser = new Browser(DriverContext.Driver);
-                    LogHelpers.WriteLog("Opened URL:"+url);
-                    DriverContext.Browser.GoToUrl(url);
                     break;
                 default:
-                    DriverContext.Driver = new FirefoxDriver(FirefoxDriverService.CreateDefaultService(@Settings.DriverPath));
+                    DriverContext.Driver = new FirefoxDriver(FirefoxDriverService.CreateDefaultService(Settings.DriverPath));
                     DriverContext.Browser = new Browser(DriverContext.Driver);
-                    DriverContext.Browser.GoToUrl(url);
                     break;
             }
+        }
+        public virtual void NavigateToApp() {
+            //Open Browser
+            //LogHelpers.WriteLog("Opened URL:" + Settings.Url);
+            DriverContext.Browser.GoToUrl(Settings.Url);
         }
     }
 }

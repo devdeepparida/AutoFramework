@@ -24,7 +24,7 @@ namespace AutoFramework.Config
             XPathItem driverpath;
             XPathItem browsertype;
 
-            string strFilename = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
+            string strFilename = "D:\\CSharpByDevdeep\\AutoFramework\\AutoFramework\\Config\\GlobalConfig.xml";//Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
 
             FileStream stream = new FileStream(strFilename, FileMode.Open);
             XPathDocument document = new XPathDocument(stream);
