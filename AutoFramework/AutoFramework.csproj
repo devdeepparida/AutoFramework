@@ -52,6 +52,7 @@
       <HintPath>..\packages\SpecRun.SpecFlow.2-3-0.1.7.2\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
@@ -88,6 +89,9 @@
     <Compile Include="Base\DriverContext.cs" />
     <Compile Include="Base\TestInitializeHook.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ConfigElement\FrameworkElement.cs" />
+    <Compile Include="ConfigElement\FrameworkElementCollection.cs" />
+    <Compile Include="ConfigElement\TestConfiguration.cs" />
     <Compile Include="Config\ConfigReader.cs" />
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Extensions\WebDriverExtensions.cs" />
