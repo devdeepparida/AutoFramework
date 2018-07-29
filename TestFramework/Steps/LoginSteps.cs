@@ -3,6 +3,7 @@ using TechTalk.SpecFlow;
 using TestFramework.Pages;
 using TechTalk.SpecFlow.Assist;
 using AutoFramework.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestFramework.Steps
 {
