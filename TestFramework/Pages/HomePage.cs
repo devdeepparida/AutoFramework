@@ -2,7 +2,6 @@
 using AutoFramework.Extensions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +13,12 @@ namespace TestFramework.Pages
 {
     class HomePage: BasePage
     {
-        [FindsBy(How = How.XPath, Using = "//div[@id='navmenu']/ul/li[3]/a")]
-        private IWebElement lnkCompany { get; set; }
+        
+        private IWebElement lnkCompany => DriverContext.Driver.FindElement(By.XPath("//div[@id='navmenu']/ul/li[3]/a"));
 
-        [FindsBy(How = How.XPath, Using = "//div[@id='navmenu']/ul/li[3]/ul/li[1]/a")]
-        private IWebElement lnkNewCompany { get; set; }
+        private IWebElement lnkNewCompany => DriverContext.Driver.FindElement(By.XPath("//div[@id='navmenu']/ul/li[3]/ul/li[1]/a"));
 
-        [FindsBy(How =How.XPath, Using = "//td[contains(text(),'User: Devdeep Parida')]")]
-        private IWebElement lblUserWelcome { get; set; }
+        private IWebElement lblUserWelcome => DriverContext.Driver.FindElement(By.XPath("//td[contains(text(),'User: Devdeep Parida')]"));
 
         public void NavigateToNewCompany() {
             //Thread.Sleep(2000);

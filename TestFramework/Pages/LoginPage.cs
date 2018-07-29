@@ -11,14 +11,11 @@ namespace TestFramework.Pages
 {
     class LoginPage : BasePage
     {
-        [FindsBy(How =How.Name,Using = "username")]
-        private IWebElement txtUsername { get; set; }
+        private IWebElement txtUsername => DriverContext.Driver.FindElement(By.Name("username"));
 
-        [FindsBy(How = How.Name, Using = "password")]
-        private IWebElement txtPassword { get; set; }
+        private IWebElement txtPassword => DriverContext.Driver.FindElement(By.Name("password"));
 
-        [FindsBy(How = How.XPath, Using = "//input[@class='btn btn-small']")]
-        private IWebElement btnSubmit { get; set; }
+        private IWebElement btnSubmit => DriverContext.Driver.FindElement(By.XPath("//input[@class='btn btn-small']"));
 
         public LoginPage CheckLoginPageLoaded()
         {

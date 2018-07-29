@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System;
 using TechTalk.SpecFlow;
 
 namespace AutoFramework.Base
@@ -15,13 +16,7 @@ namespace AutoFramework.Base
 
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
-            TPage pageInstance = new TPage()
-            {
-                _driver = DriverContext.Driver
-            };
-
-            PageFactory.InitElements(DriverContext.Driver, this);
-            return pageInstance;
+            return (TPage)Activator.CreateInstance(typeof(TPage));
         }
 
         public TPage As<TPage>() where TPage : BasePage {

@@ -4,8 +4,6 @@ namespace AutoFramework.ConfigElement
 {
     public class FrameworkElement : ConfigurationElement
     {
-
-
         [ConfigurationProperty("name", IsRequired =true)]
         public string Name { get { return (string)base["name"]; } }
 
